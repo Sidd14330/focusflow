@@ -1,70 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101827">
-  <title>FocusFlow — Study & Task Planner</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="#" aria-label="FocusFlow home"><span class="brand-mark">F</span><span>FocusFlow</span></a>
-      <div class="top-actions"><span class="today" id="todayLabel"></span><button class="ghost-btn" id="clearCompleted">Clear completed</button></div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div>
-          <p class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</p>
-          <h1>Make time for<br><span>what matters.</span></h1>
-          <p class="hero-copy">Plan your day, focus in short sessions, and make steady progress.</p>
-        </div>
-        <div class="hero-stat"><span class="stat-icon">✦</span><div><strong id="progressPercent">0%</strong><small>Daily progress</small></div><div class="progress-ring"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18"></circle><circle id="progressCircle" class="progress-value" cx="22" cy="22" r="18"></circle></svg></div></div>
-      </section>
-
-      <section class="dashboard">
-        <div class="main-column">
-          <section class="panel task-panel">
-            <div class="section-heading"><div><p class="eyebrow">STAY ON TRACK</p><h2>Today's tasks</h2></div><span class="count-pill" id="taskCount">0 tasks</span></div>
-            <form id="taskForm" class="task-form">
-              <input id="taskInput" type="text" maxlength="90" placeholder="What do you want to get done?" aria-label="New task" required>
-              <select id="priorityInput" aria-label="Task priority"><option value="normal">Normal</option><option value="high">High priority</option><option value="low">Low priority</option></select>
-              <button class="primary-btn" type="submit">Add task <span>＋</span></button>
-            </form>
-            <div class="filters" role="group" aria-label="Filter tasks"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="active">Active</button><button class="filter" data-filter="done">Completed</button></div>
-            <ul id="taskList" class="task-list" aria-live="polite"></ul>
-            <p id="emptyState" class="empty-state">Nothing here yet. Add a task to get started.</p>
-          </section>
-
-          <section class="panel quote-panel">
-            <span class="quote-mark">“</span>
-            <div><p id="quoteText">Small steps every day add up to big results.</p><small> A LITTLE REMINDER</small></div>
-            <button id="newQuote" class="icon-btn" aria-label="Show another reminder" title="New reminder">↻</button>
-          </section>
-        </div>
-
-        <aside class="side-column">
-          <section class="panel timer-panel">
-            <p class="eyebrow">DEEP WORK</p><h2>Focus timer</h2>
-            <p class="muted">One thing at a time. You've got this.</p>
-            <div class="timer-display" id="timerDisplay" aria-live="off">25:00</div>
-            <div class="timer-mode"><button class="mode active" data-minutes="25">Focus</button><button class="mode" data-minutes="5">Short break</button><button class="mode" data-minutes="15">Long break</button></div>
-            <div class="timer-controls"><button id="startTimer" class="primary-btn">Start focus</button><button id="resetTimer" class="secondary-btn">Reset</button></div>
-            <p class="timer-note" id="timerNote">25-minute focus session</p>
-          </section>
-          <section class="panel summary-panel">
-            <p class="eyebrow">YOUR DAY AT A GLANCE</p><h2>Overview</h2>
-            <div class="summary-row"><span>Tasks added</span><strong id="addedTotal">0</strong></div>
-            <div class="summary-row"><span>Completed</span><strong id="completedTotal">0</strong></div>
-            <div class="summary-row"><span>Still to do</span><strong id="remainingTotal">0</strong></div>
-          </section>
-        </aside>
-      </section>
-    </main>
-    <footer><span>FocusFlow</span><span>Built for calmer, more intentional days.</span></footer>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f8fc"><title>FocusFlow Ultra — Personal Productivity</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body><aside class="sidebar"><a class="brand"><i>F</i><span>focusflow<small>PERSONAL COMMAND CENTER</small></span></a><div class="workspace">◉　<b>My Workspace</b><small>Personal space</small></div><p class="label">WORKSPACE</p><nav><button class="active" data-page="overview">▦　Overview</button><button data-page="tasks">☷　My Tasks <em id="taskBadge">0</em></button><button data-page="focus">◷　Focus Studio</button><button data-page="habits">✳　Habits</button><button data-page="notes">▤　Quick Notes</button><button data-page="insights">⌁　Insights</button></nav><p class="label">PREFERENCES</p><nav><button id="theme">◐　Switch appearance</button><button id="export">⇩　Export my data</button><button id="import">⇧　Import backup</button><input id="file" type="file" accept="application/json" hidden></nav><div class="side-bottom"><div class="motif">✦<b>Small steps. Big progress.</b><small>Your consistency is your superpower.</small></div><small>FOCUSFLOW · LOCAL WORKSPACE</small></div></aside><div class="main"><header><button id="menu">☰</button><div>Workspace　/　<b id="crumb">Overview</b></div><span id="date"></span><button class="add" id="quick">＋</button><i class="user">S</i></header><main>
+<section class="page active" id="overview"><div class="intro"><div><p class="label">YOUR PERSONAL COMMAND CENTER</p><h1 id="greeting">Good day. <span>Let's make it count.</span></h1><p class="muted">A clear mind starts with a clear plan. Here's your day at a glance.</p></div><div class="datecard">✦　<b id="today"></b><small>One day at a time</small></div></div><div class="stats"><article><small>Tasks completed</small><strong id="completed">0</strong><p>Today · Keep the momentum</p><div class="bar"><i id="bar1"></i></div></article><article><small>Tasks remaining</small><strong id="remaining">0</strong><p>Ready when you are</p><div class="bar blue"><i id="bar2"></i></div></article><article><small>Focus minutes</small><strong id="focusmins">0</strong><p>Minutes tracked today</p><div class="bar orange"><i id="bar3"></i></div></article><article><small>Active habits</small><strong id="habitcount">0</strong><p>Build your daily rhythm</p><div class="bar green"><i id="bar4"></i></div></article></div><div class="grid"><article class="card"><div class="heading"><div><p class="label">STAY IN CONTROL</p><h2>Today's priorities</h2></div><button class="link" data-go="tasks">View all ↗</button></div><form id="taskform" class="inlineform"><input id="taskname" placeholder="Add a task you want to finish…" maxlength="100" required><select id="priority"><option value="normal">Normal</option><option value="high">High</option><option value="low">Low</option></select><button class="primary">Add task ＋</button></form><div id="todaytasks"></div><p id="emptytasks" class="empty">You're all caught up. Add a task to get started ✨</p></article><article class="card focuscard"><div class="heading"><div><p class="label">MAKE SPACE FOR DEEP WORK</p><h2>Focus session</h2></div><span class="live">● READY</span></div><p class="muted">Give one important thing your full attention.</p><div class="timer"><svg viewBox="0 0 220 220"><circle cx="110" cy="110" r="96" class="track"/><circle cx="110" cy="110" r="96" class="progress" id="ring"/></svg><div><strong id="clock">25:00</strong><small id="modeLabel">FOCUS TIME</small></div></div><div class="modes"><button class="selected" data-min="25">Focus</button><button data-min="5">Short break</button><button data-min="15">Long break</button></div><div class="timerbuttons"><button class="primary" id="start">Start session</button><button class="secondary" id="reset">↺</button></div></article><article class="card"><div class="heading"><div><p class="label">SHOW UP FOR YOURSELF</p><h2>Daily habits</h2></div><button class="link" data-go="habits">Manage ↗</button></div><div id="habitpreview"></div><p id="habitsummary" class="muted">No habits yet</p><p class="muted">Best current streak: <b id="habitstreak">0 days</b></p></article><article class="card"><div class="heading"><div><p class="label">YOUR CONSISTENCY</p><h2>Weekly activity</h2></div><small class="muted">LAST 7 DAYS</small></div><div class="chart" id="chart"></div><p class="muted" id="weekly"></p></article></div><div class="quote">✦　<span id="quote">You don't have to do everything today. Just the next right thing.</span><button id="newquote">↻</button></div></section>
+<section class="page" id="tasks"><div class="intro"><div><p class="label">PLAN WITH PURPOSE</p><h1>My tasks</h1><p class="muted">Capture it, prioritize it, get it done.</p></div></div><article class="card"><form id="fullform" class="inlineform"><input id="fulltask" placeholder="What needs your attention?" required><select id="fullpriority"><option value="normal">Normal priority</option><option value="high">High priority</option><option value="low">Low priority</option></select><input id="due" type="date"><button class="primary">Create task ＋</button></form><div class="tasktools"><input id="tasksearch" type="search" placeholder="Search tasks…  (press /)" aria-label="Search tasks"><span id="taskResults" class="muted">0 tasks</span></div><div class="filters"><button class="selected" data-filter="all">All tasks</button><button data-filter="active">To do</button><button data-filter="done">Completed</button></div><div id="alltasks"></div></article></section>
+<section class="page" id="focus"><div class="intro"><div><p class="label">PROTECT YOUR ATTENTION</p><h1>Focus Studio</h1><p class="muted">Work in focused intervals. Rest with intention.</p></div></div><div class="grid focusgrid"><article class="card focuscard"><span class="live">● FOCUS MODE</span><div class="timer big"><svg viewBox="0 0 220 220"><circle cx="110" cy="110" r="96" class="track"/><circle cx="110" cy="110" r="96" class="progress" id="ring2"/></svg><div><strong id="clock2">25:00</strong><small id="modeLabel2">FOCUS TIME</small></div></div><div class="modes"><button class="selected" data-min="25">Focus · 25m</button><button data-min="5">Short break · 5m</button><button data-min="15">Long break · 15m</button></div><div class="timerbuttons"><button class="primary" id="start2">Start session</button><button class="secondary" id="reset2">Reset</button></div><p class="muted">Every focused minute is a vote for your goals.</p></article><article class="card guide"><p class="label">SESSION GUIDE</p><h2>Make focus a habit.</h2><p><b>01　Choose one task</b><small>Decide what matters most before you begin.</small></p><p><b>02　Remove distractions</b><small>Silence notifications and close unrelated tabs.</small></p><p><b>03　Take a real break</b><small>Step away and recharge between sessions.</small></p><hr><b>Total focus time today: <span id="focusTotal">0</span> min</b></article></div></section>
+<section class="page" id="habits"><div class="intro"><div><p class="label">TINY ACTIONS, BIG CHANGE</p><h1>Daily habits</h1><p class="muted">Build routines that support the person you're becoming.</p></div></div><article class="card"><form id="habitform" class="inlineform"><input id="habitname" placeholder="e.g. Read for 20 minutes" required><button class="primary">Add habit ＋</button></form><div id="habitlist"></div><p id="emptyhabits" class="empty">Start with one small habit you want to practice daily.</p></article></section>
+<section class="page" id="notes"><div class="intro"><div><p class="label">THINK IT. SAVE IT.</p><h1>Quick notes</h1><p class="muted">A simple space for ideas, reminders, and thoughts.</p></div></div><article class="card"><form id="noteform" class="noteform"><input id="notetitle" placeholder="Note title" required><textarea id="notebody" rows="4" placeholder="Write your thought…"></textarea><button class="primary">Save note ＋</button></form><div class="notes" id="noteslist"></div><p id="emptynotes" class="empty">Your notes will appear here.</p></article></section>
+<section class="page" id="insights"><div class="intro"><div><p class="label">NOTICE YOUR PROGRESS</p><h1>Insights</h1><p class="muted">Your activity, reflected back to you.</p></div></div><div class="stats"><article><small>Total tasks created</small><strong id="itotal">0</strong></article><article><small>All-time completed</small><strong id="idone">0</strong></article><article><small>Focus minutes today</small><strong id="ifocus">0</strong></article><article><small>Habits created</small><strong id="ihabits">0</strong></article></div><article class="card"><h2>Completion activity · Last 7 days</h2><div class="chart tall" id="chart2"></div></article><p class="muted">🔒 Your information stays in this browser. FocusFlow does not send your tasks, habits, or notes to a server.</p></section>
+<footer>FOCUSFLOW. <span>Designed for intentional progress.</span><span>Local-first · MIT License</span></footer></main></div><div id="toast"></div><script src="app.js"></script></body></html>
