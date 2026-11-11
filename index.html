@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>FocusFlow — Study & Task Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="FocusFlow home"><span class="brand-mark">F</span><span>FocusFlow</span></a>
+      <div class="top-actions"><span class="today" id="todayLabel"></span><button class="ghost-btn" id="clearCompleted">Clear completed</button></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</p>
+          <h1>Make time for<br><span>what matters.</span></h1>
+          <p class="hero-copy">Plan your day, focus in short sessions, and make steady progress.</p>
+        </div>
+        <div class="hero-stat"><span class="stat-icon">✦</span><div><strong id="progressPercent">0%</strong><small>Daily progress</small></div><div class="progress-ring"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18"></circle><circle id="progressCircle" class="progress-value" cx="22" cy="22" r="18"></circle></svg></div></div>
+      </section>
+
+      <section class="dashboard">
+        <div class="main-column">
+          <section class="panel task-panel">
+            <div class="section-heading"><div><p class="eyebrow">STAY ON TRACK</p><h2>Today's tasks</h2></div><span class="count-pill" id="taskCount">0 tasks</span></div>
+            <form id="taskForm" class="task-form">
+              <input id="taskInput" type="text" maxlength="90" placeholder="What do you want to get done?" aria-label="New task" required>
+              <select id="priorityInput" aria-label="Task priority"><option value="normal">Normal</option><option value="high">High priority</option><option value="low">Low priority</option></select>
+              <button class="primary-btn" type="submit">Add task <span>＋</span></button>
+            </form>
+            <div class="filters" role="group" aria-label="Filter tasks"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="active">Active</button><button class="filter" data-filter="done">Completed</button></div>
+            <ul id="taskList" class="task-list" aria-live="polite"></ul>
+            <p id="emptyState" class="empty-state">Nothing here yet. Add a task to get started.</p>
+          </section>
+
+          <section class="panel quote-panel">
+            <span class="quote-mark">“</span>
+            <div><p id="quoteText">Small steps every day add up to big results.</p><small> A LITTLE REMINDER</small></div>
+            <button id="newQuote" class="icon-btn" aria-label="Show another reminder" title="New reminder">↻</button>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="panel timer-panel">
+            <p class="eyebrow">DEEP WORK</p><h2>Focus timer</h2>
+            <p class="muted">One thing at a time. You've got this.</p>
+            <div class="timer-display" id="timerDisplay" aria-live="off">25:00</div>
+            <div class="timer-mode"><button class="mode active" data-minutes="25">Focus</button><button class="mode" data-minutes="5">Short break</button><button class="mode" data-minutes="15">Long break</button></div>
+            <div class="timer-controls"><button id="startTimer" class="primary-btn">Start focus</button><button id="resetTimer" class="secondary-btn">Reset</button></div>
+            <p class="timer-note" id="timerNote">25-minute focus session</p>
+          </section>
+          <section class="panel summary-panel">
+            <p class="eyebrow">YOUR DAY AT A GLANCE</p><h2>Overview</h2>
+            <div class="summary-row"><span>Tasks added</span><strong id="addedTotal">0</strong></div>
+            <div class="summary-row"><span>Completed</span><strong id="completedTotal">0</strong></div>
+            <div class="summary-row"><span>Still to do</span><strong id="remainingTotal">0</strong></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+    <footer><span>FocusFlow</span><span>Built for calmer, more intentional days.</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
